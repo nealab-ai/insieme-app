@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Insieme · Invito e download</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #faf7f2;
+        --surface: #ffffff;
+        --surface-soft: #f3ede3;
+        --border: #e6dec8;
+        --text: #1f1b16;
+        --text-soft: #5c5346;
+        --muted: #787066;
+        --accent: #b84a27;
+        --accent-fg: #ffffff;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #171411;
+          --surface: #221e1a;
+          --surface-soft: #2c2621;
+          --border: #38312a;
+          --text: #f5efe6;
+          --text-soft: #c9bfb2;
+          --muted: #9e9488;
+          --accent: #e06d44;
+          --accent-fg: #171411;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 16px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .card {
+        width: 100%;
+        max-width: 440px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 32px 24px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .brand-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: -0.2px;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        line-height: 1.25;
+        letter-spacing: -0.3px;
+      }
+      p {
+        margin: 0 0 18px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--text-soft);
+      }
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 12px 20px;
+        border-radius: 14px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1.5px solid transparent;
+        transition: opacity 0.15s ease, transform 0.1s ease;
+        text-align: center;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--accent-fg);
+      }
+      .btn-secondary {
+        background: var(--surface-soft);
+        color: var(--text);
+        border-color: var(--border);
+      }
+      .code-box {
+        margin-top: 22px;
+        padding: 16px;
+        background: var(--surface-soft);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+      }
+      .code-label {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+      .code-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .code-val {
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 13px;
+        font-weight: 600;
+        word-break: break-all;
+        color: var(--text);
+      }
+      .copy-btn {
+        flex-shrink: 0;
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .hint {
+        margin-top: 18px;
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="brand">
+        <svg width="36" height="36" viewBox="0 0 34 34" aria-hidden="true">
+          <circle cx="13" cy="17" r="10" fill="none" stroke="var(--accent)" stroke-width="3" />
+          <circle cx="21" cy="17" r="10" fill="none" stroke="var(--accent)" stroke-width="3" opacity="0.6" />
+        </svg>
+        <span class="brand-name">Insieme</span>
+      </div>
+
+      <h1 id="title">Ti aspettiamo su Insieme</h1>
+      <p id="subtitle">
+        Apri l’invito direttamente nell’app Insieme, oppure scarica l’app per Android qui sotto.
+      </p>
+
+      <div class="actions">
+        <a id="open-app-btn" class="btn btn-primary" href="insieme://">
+          Apri l’invito su Insieme
+        </a>
+        <a
+          id="download-apk-btn"
+          class="btn btn-secondary"
+          href="https://github.com/nealab-ai/insieme-app/releases/latest/download/insieme.apk"
+        >
+          Scarica l’app per Android (.apk)
+        </a>
+      </div>
+
+      <div id="code-section" class="code-box hidden">
+        <div class="code-label">
+          Dopo aver installato l’app, tocca «Ho un invito» e incolla questo codice:
+        </div>
+        <div class="code-row">
+          <span id="code-text" class="code-val"></span>
+          <button id="copy-btn" class="copy-btn" type="button">Copia</button>
+        </div>
+      </div>
+
+      <p class="hint">
+        Se Android chiede il permesso per installare l’app, conferma «Installa da questa fonte».
+      </p>
+    </main>
+
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var raw =
+          params.get("token") ||
+          params.get("t") ||
+          window.location.hash.replace(/^#/, "") ||
+          window.location.pathname;
+        var match = raw.match(/([0-9a-f]{32})/i);
+        var token = match ? match[1].toLowerCase() : null;
+        var openBtn = document.getElementById("open-app-btn");
+        var codeSection = document.getElementById("code-section");
+        var codeText = document.getElementById("code-text");
+        var copyBtn = document.getElementById("copy-btn");
+
+        if (token) {
+          var deepLink = "insieme://invite/" + token;
+          openBtn.setAttribute("href", deepLink);
+          codeText.textContent = token;
+          codeSection.classList.remove("hidden");
+
+          copyBtn.addEventListener("click", function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(token).then(function () {
+                copyBtn.textContent = "Copiato ✓";
+                setTimeout(function () {
+                  copyBtn.textContent = "Copia";
+                }, 2000);
+              });
+            }
+          });
+
+          // Try opening the installed app automatically after a brief paint delay.
+          setTimeout(function () {
+            window.location.href = deepLink;
+          }, 250);
+        } else {
+          document.getElementById("title").textContent = "Scarica Insieme";
+          document.getElementById("subtitle").textContent =
+            "Installa l’anteprima di Insieme sul tuo telefono Android.";
+          openBtn.textContent = "Apri Insieme";
+        }
+      })();
+    </script>
+  </body>
+</html>
