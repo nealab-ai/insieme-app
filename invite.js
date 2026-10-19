@@ -14,7 +14,7 @@
   var EN = {
     "title": "You’ve been invited to Insieme",
     "langSwitch": "Italiano",
-    "lead": "Insieme keeps family things in order: each one with a date and someone on it. You’re in after three steps.",
+    "lead": "Insieme is your home’s shared memory: deadlines, shopping, appointments and chores, each with a date and someone on it. You’re in after three steps.",
     "iosTitle": "Coming soon for iPhone",
     "iosBody": "For now Insieme is Android only, as a test version. The iPhone and iPad app is on its way: when it’s ready, ask whoever invited you for a new invite.",
     "iosAndroid": "Also have an Android phone? Open this link there and follow the three steps.",
@@ -41,7 +41,7 @@
     "qrLabel": "QR code of this page",
     "qrTitle": "Open this page on your phone",
     "qrBody": "Scan the code with your Android phone’s camera: the invite is already in it.",
-    "trust": "Insieme is the app that keeps family things in order. This page uses no cookies and no analytics.",
+    "trust": "Insieme is your home’s shared memory. This page uses no cookies and no analytics.",
     "privacy": "Privacy"
   };
   /* COPY-END */
