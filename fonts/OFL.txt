@@ -1,0 +1,4 @@
+Figtree (c) The Figtree Project Authors (https://github.com/erikdkennedy/figtree)
+Bricolage Grotesque (c) The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage)
+Both are licensed under the SIL Open Font License, Version 1.1: https://openfontlicense.org
+Files from @fontsource/figtree and @fontsource/bricolage-grotesque (latin subset, woff2), self-hosted.
