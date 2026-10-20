@@ -14,34 +14,53 @@
   var EN = {
     "title": "You’ve been invited to Insieme",
     "langSwitch": "Italiano",
-    "lead": "Insieme is your home’s shared memory: deadlines, shopping, appointments and chores, each with a date and someone on it. You’re in after three steps.",
-    "iosTitle": "Coming soon for iPhone",
-    "iosBody": "For now Insieme is Android only, as a test version. The iPhone and iPad app is on its way: when it’s ready, ask whoever invited you for a new invite.",
-    "iosAndroid": "Also have an Android phone? Open this link there and follow the three steps.",
-    "s1Title": "Get the app",
-    "s1Body": "Test version for Android, not on Google Play yet.",
-    "desktopS1": "On your Android phone: test version, not on Google Play yet, about 200 MB.",
+    "lead": "Insieme is your home’s shared memory: deadlines, shopping, appointments and chores, each with a date and someone on it. You’re in after three steps, all below.",
+    "leadShort": "Insieme is your home’s shared memory: deadlines, shopping, appointments and chores, each with a date and someone on it.",
+    "offTitle": "You’re offline",
+    "offBody": "You can download Insieme as soon as you’re back online.",
+    "iosTitle": "For now Insieme is Android only",
+    "iosBody": "We’ll let you know when it arrives on iPhone: leave us your email, nothing else needed.",
+    "iosButton": "Tell me about iPhone",
+    "iosAndroid": "Have an Android phone too? Open this link there and follow the three steps.",
+    "s1Title": "Get Insieme",
+    "s1Body": "The file is big, about 200 MB: better on Wi-Fi. You get it from GitHub, the site where we publish the app.",
+    "desktopS1": "On your Android phone: about 200 MB, from GitHub, the site where we publish the app.",
     "s1Button": "Download for Android",
-    "s1Size": "APK file · about 200 MB",
-    "howTitle": "How to install it",
-    "how1": "Open the downloaded file (insieme.apk) from the notification or from Downloads.",
-    "how2": "If Android asks, allow your browser to install unknown apps: «Settings», then «Allow from this source».",
-    "how3": "Tap «Install», then come back here for step 2.",
-    "s2Title": "Open the invite",
-    "s2Body": "With the app installed, tap here: the invite opens in Insieme.",
-    "s2Button": "Open the invite in Insieme",
-    "s2Fallback": "Doesn’t open? In Insieme tap «I have an invite» and paste this code:",
+    "s1Size": "APK file · about 200 MB · from GitHub",
+    "s2Title": "Install",
+    "desktopS2": "Android will show you three warnings: open this page on the phone and it tells you what to tap for each.",
+    "s2Intro": "Android will show you three warnings, in the order they appear. They are normal: it happens with every app that does not come from the Play Store, and Insieme is not there yet. The exact words vary a little from phone to phone.",
+    "w1When": "Warning 1 · as you download",
+    "w1Shown": "You see: “This type of file can harm your device”",
+    "w1Tap": "Tap “Download anyway”",
+    "w1Why": "It appears because the app is not on the Play Store yet. The file is signed by us.",
+    "w2When": "Warning 2 · when you open the file",
+    "w2Shown": "You see: “Install unknown apps”",
+    "w2Tap": "Tap “Settings › Allow from this source”",
+    "w2Why": "Android asks for your OK because the file comes from the browser, not the Play Store. Then go back and tap “Install”.",
+    "w3When": "Warning 3 · before it installs",
+    "w3Shown": "You see: “Unsafe app” and “Scan app”",
+    "w3Tap": "Tap “Install anyway”",
+    "w3Why": "Play Protect does not know Insieme yet, because it is new. The file is signed: it is exactly what we publish.",
+    "bridge": "After installing, come back to this page and tap “Open the invite”.",
+    "s3Title": "Open the invite",
+    "s3Body": "With Insieme installed, tap here: the invite opens in the app. Then you sign in with your email, no password.",
+    "s3Button": "Open the invite in Insieme",
+    "s3Fallback": "Doesn’t open? In Insieme tap “I have an invite” and type or paste this code:",
     "codeLabel": "Invite code",
     "copy": "Copy the code",
     "copied": "Code copied",
-    "s2NoToken": "Tap the invite link in the message you received: it opens in Insieme. Or in Insieme tap «I have an invite» and paste the code from the message.",
-    "s3Title": "Sign in with your email",
-    "s3Body": "We send you a 6-digit code, no password. Once you’re in, you join the family that invited you.",
+    "copiedLabel": "Now paste it in Insieme, where you tap “I have an invite”.",
+    "copyFailTitle": "I can’t copy it by myself",
+    "copyFailBody": "Press and hold the code and choose “Copy”.",
+    "noTokenTitle": "This link has no valid code",
+    "noTokenBody": "The code is missing, incomplete or the invite has expired (they last 7 days). Ask whoever invited you to send a new one.",
+    "s3NoToken": "With Insieme installed, tap the invite link in the message you received: it opens in the app.",
     "note": "The invite is valid for 7 days and works once. If you don’t know who sent it, ignore it.",
     "qrLabel": "QR code of this page",
     "qrTitle": "Open this page on your phone",
     "qrBody": "Scan the code with your Android phone’s camera: the invite is already in it.",
-    "trust": "Insieme is your home’s shared memory. This page uses no cookies and no analytics.",
+    "trust": "The code stays in your browser: the page sends it to no one and uses no cookies and no analytics.",
     "privacy": "Privacy"
   };
   /* COPY-END */
@@ -87,6 +106,7 @@
   labels.forEach(function (el) { IT[el.getAttribute('data-i18n-label')] = el.getAttribute('aria-label'); });
   IT.title = document.title;
   var lang = 'it';
+  var relabel = function () { /* set once there is a code */ };
   function t(key) { return (lang === 'en' ? EN : IT)[key]; }
 
   function applyLang(next) {
@@ -95,11 +115,13 @@
     document.title = t('title');
     texts.forEach(function (el) { el.textContent = t(el.getAttribute('data-i18n')); });
     labels.forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-label'))); });
+    relabel();
     var langButton = document.getElementById('lang');
     langButton.setAttribute('lang', lang === 'en' ? 'it' : 'en');
-    var privacy = document.getElementById('privacy');
-    if (!privacy.hasAttribute('data-href-it')) privacy.setAttribute('data-href-it', privacy.getAttribute('href'));
-    privacy.setAttribute('href', privacy.getAttribute('data-href-' + lang));
+    document.querySelectorAll('[data-href-en]').forEach(function (link) {
+      if (!link.hasAttribute('data-href-it')) link.setAttribute('data-href-it', link.getAttribute('href'));
+      link.setAttribute('href', link.getAttribute('data-href-' + lang));
+    });
   }
 
   applyLang(readLang());
@@ -110,34 +132,56 @@
     try { window.history.replaceState(null, '', '?' + next.toString() + window.location.hash); } catch { /* file:// or a sandbox: the switch still works */ }
   });
 
+  // Offline: say so (the download needs the network); the rest of the page still works.
+  var offline = document.getElementById('offline');
+  function showOnline() { offline.classList.toggle('hidden', navigator.onLine !== false); }
+  window.addEventListener('online', showOnline);
+  window.addEventListener('offline', showOnline);
+  showOnline();
+
   if (token) {
     var deepLink = SCHEME + '://invite/' + token;
     document.getElementById('open').setAttribute('href', deepLink);
-    document.getElementById('code').textContent = token;
+    // The code in groups of four, easier to read aloud and to type; the groups are spaced by CSS, so a long-press
+    // copy still gives the 32 characters without spaces.
+    var codeEl = document.getElementById('code');
+    token.match(/.{4}/g).forEach(function (group) {
+      var span = document.createElement('span');
+      span.textContent = group;
+      codeEl.appendChild(span);
+    });
+    var copyButton = document.getElementById('copy');
     var copyLabel = document.getElementById('copy-label');
-    var timer = null;
-    document.getElementById('copy').addEventListener('click', function () {
+    var copiedHint = document.getElementById('copied-hint');
+    var copyFail = document.getElementById('copy-fail');
+    var copied = false;
+    relabel = function () { copyLabel.textContent = t(copied ? 'copied' : 'copy'); };
+    copyButton.addEventListener('click', function () {
       var done = function () {
-        copyLabel.textContent = t('copied');
-        clearTimeout(timer);
-        timer = setTimeout(function () { copyLabel.textContent = t('copy'); }, 2500);
+        copied = true;
+        copyButton.classList.add('is-copied');
+        copiedHint.classList.remove('hidden');
+        copyFail.classList.add('hidden');
+        relabel();
       };
-      var select = function () {
+      var failed = function () {
         var range = document.createRange();
-        range.selectNodeContents(document.getElementById('code'));
+        range.selectNodeContents(codeEl);
         var selection = window.getSelection();
         selection.removeAllRanges();
         selection.addRange(range);
+        copyFail.classList.remove('hidden');
       };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(token).then(done, select);
-      else select();
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(token).then(done, failed);
+      else failed();
     });
     // With the app installed, Android opens the invite straight away; without it, nothing happens and the steps stay.
     if (os === 'android') setTimeout(function () { window.location.href = deepLink; }, 400);
   }
 
   if (os === 'desktop' && window.InsiemeQR) {
-    var target = PAGE_URL + (token ? '?t=' + token : '');
+    // #t=, like the invite Edge Function's redirect: what follows # never leaves the phone's browser.
+    var target = PAGE_URL + (token ? '#t=' + token : '');
     var qr = window.InsiemeQR.encode(target);
     var border = 4;
     var dim = qr.size + border * 2;

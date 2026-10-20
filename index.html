@@ -65,53 +65,92 @@
 
   <div class="intro">
     <h1 data-i18n="title">Ti hanno invitato su Insieme</h1>
-    <p class="lead" data-i18n="lead">Insieme è la memoria condivisa della casa: scadenze, spesa, visite e turni, ognuno con una data e chi se ne occupa. Entri in tre passi.</p>
+    <p class="lead not-ios" data-i18n="lead">Insieme è la memoria condivisa della casa: scadenze, spesa, visite e turni, ognuno con una data e chi se ne occupa. Entri in tre passi, sono tutti qui sotto.</p>
+    <p class="lead only-ios" data-i18n="leadShort">Insieme è la memoria condivisa della casa: scadenze, spesa, visite e turni, ognuno con una data e chi se ne occupa.</p>
+  </div>
+
+  <div class="notice hidden" id="offline" role="status">
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18"/><path d="M2.5 9a15 15 0 0 1 5-3M21.5 9a15 15 0 0 0-8-3.8M5.5 12.5a10 10 0 0 1 3-1.8M18.5 12.5a10 10 0 0 0-3-2M9 16a5 5 0 0 1 6 0"/><path d="M12 19.5h.01"/></svg>
+    <div><strong data-i18n="offTitle">Sei senza connessione</strong><span data-i18n="offBody">Appena torni online puoi scaricare Insieme.</span></div>
   </div>
 
   <section class="card ios only-ios" aria-labelledby="ios-title">
     <span class="ios-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span>
-    <h2 id="ios-title" data-i18n="iosTitle">Per iPhone arriva presto</h2>
-    <p data-i18n="iosBody">Per ora Insieme c'è solo per Android, in versione di prova. L'app per iPhone e iPad è in preparazione: quando sarà pronta, chiedi a chi ti ha invitato un nuovo invito.</p>
+    <h2 id="ios-title" data-i18n="iosTitle">Per ora Insieme è solo per Android</h2>
+    <p data-i18n="iosBody">Ti avvisiamo quando arriva su iPhone: lasciaci la tua email, non serve altro.</p>
+    <a class="btn btn--tonal" id="ios-notify" href="https://insieme.app/#beta" data-href-en="https://insieme.app/en/#beta" data-i18n="iosButton">Avvisami per iPhone</a>
     <p data-i18n="iosAndroid">Hai anche un telefono Android? Apri questo link lì e segui i tre passi.</p>
   </section>
 
   <ol class="steps not-ios">
     <li class="card step">
-      <div class="step-head"><span class="step-n" aria-hidden="true">1</span><h2 data-i18n="s1Title">Scarica l'app</h2></div>
-      <p class="not-desktop" data-i18n="s1Body">Versione di prova per Android, non ancora su Google Play.</p>
-      <p class="only-desktop" data-i18n="desktopS1">Sul telefono Android: versione di prova, non ancora su Google Play, circa 200 MB.</p>
+      <div class="step-head"><span class="step-n" aria-hidden="true">1</span><h2 data-i18n="s1Title">Scarica Insieme</h2></div>
+      <p class="not-desktop" data-i18n="s1Body">Il file è grosso, circa 200 MB: meglio con il Wi-Fi. Lo scarichi da GitHub, il sito dove pubblichiamo l'app.</p>
+      <p class="only-desktop" data-i18n="desktopS1">Sul telefono Android: circa 200 MB, da GitHub, il sito dove pubblichiamo l'app.</p>
       <a class="btn btn--primary not-desktop" id="apk" href="https://github.com/nealab-ai/insieme-app/releases/latest/download/insieme.apk">
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg>
         <span data-i18n="s1Button">Scarica per Android</span>
       </a>
-      <p class="size not-desktop" data-i18n="s1Size">File APK · circa 200 MB</p>
-      <details class="how not-desktop">
-        <summary><span data-i18n="howTitle">Come si installa</span><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <ol>
-          <li data-i18n="how1">Apri il file scaricato (insieme.apk) dalla notifica o da Download.</li>
-          <li data-i18n="how2">Se Android lo chiede, consenti al browser di installare app sconosciute: «Impostazioni», poi «Consenti da questa fonte».</li>
-          <li data-i18n="how3">Tocca «Installa», poi torna qui per il passo 2.</li>
-        </ol>
-      </details>
+      <p class="size not-desktop" data-i18n="s1Size">File APK · circa 200 MB · da GitHub</p>
+    </li>
+    <li class="card step step--install">
+      <div class="step-head"><span class="step-n" aria-hidden="true">2</span><h2 data-i18n="s2Title">Installa</h2></div>
+      <p class="only-desktop" data-i18n="desktopS2">Android ti mostrerà tre avvisi: la pagina, aperta sul telefono, ti dice cosa toccare per ognuno.</p>
+      <p class="not-desktop" data-i18n="s2Intro">Android ti farà vedere tre avvisi, nell'ordine in cui compaiono. Sono normali: succede con ogni app che non viene dal Play Store, e Insieme non c'è ancora. Le parole esatte cambiano un po' da un telefono all'altro.</p>
+      <ol class="warns not-desktop">
+        <li class="warn">
+          <span class="warn-when" data-i18n="w1When">Avviso 1 · appena scarichi</span>
+          <p class="warn-shown" data-i18n="w1Shown">Compare: «Questo tipo di file può danneggiare il dispositivo»</p>
+          <p class="warn-tap" data-i18n="w1Tap">Tocca «Scarica comunque»</p>
+          <svg class="dialog" viewBox="0 0 310 120" width="310" height="120" aria-hidden="true"><rect class="d-frame" x="0.75" y="0.75" width="308.5" height="118.5" rx="16"/><circle class="d-ico" cx="30" cy="30" r="10"/><rect class="d-l1" x="52" y="22" width="150" height="8" rx="4"/><rect class="d-l2" x="52" y="38" width="210" height="6" rx="3"/><rect class="d-l2" x="20" y="56" width="250" height="6" rx="3"/><rect class="d-btn" x="30" y="82" width="86" height="22" rx="11"/><rect class="d-ring" x="160" y="80" width="130" height="26" rx="13"/><rect class="d-acc" x="172" y="89" width="106" height="8" rx="4"/><circle class="d-halo" cx="262" cy="104" r="12"/><circle class="d-acc" cx="262" cy="104" r="5"/></svg>
+          <p class="warn-why" data-i18n="w1Why">Compare perché l'app non è ancora sul Play Store. Il file è firmato da noi.</p>
+        </li>
+        <li class="warn">
+          <span class="warn-when" data-i18n="w2When">Avviso 2 · quando apri il file</span>
+          <p class="warn-shown" data-i18n="w2Shown">Compare: «Installa app sconosciute»</p>
+          <p class="warn-tap" data-i18n="w2Tap">Tocca «Impostazioni › Consenti da questa fonte»</p>
+          <svg class="dialog" viewBox="0 0 310 120" width="310" height="120" aria-hidden="true"><rect class="d-frame" x="0.75" y="0.75" width="308.5" height="118.5" rx="16"/><rect class="d-l1" x="20" y="20" width="170" height="8" rx="4"/><rect class="d-l2" x="20" y="36" width="120" height="6" rx="3"/><path class="d-rule" d="M0 56h310"/><rect class="d-l1" x="20" y="76" width="160" height="8" rx="4"/><rect class="d-l2" x="20" y="92" width="110" height="6" rx="3"/><rect class="d-ring" x="214" y="66" width="76" height="44" rx="22"/><rect class="d-acc" x="228" y="78" width="48" height="20" rx="10"/><circle class="d-knob" cx="266" cy="88" r="7"/><circle class="d-halo d-halo--soft" cx="266" cy="88" r="16"/></svg>
+          <p class="warn-why" data-i18n="w2Why">Android chiede il tuo ok perché il file arriva dal browser e non dal Play Store. Poi torna indietro e tocca «Installa».</p>
+        </li>
+        <li class="warn">
+          <span class="warn-when" data-i18n="w3When">Avviso 3 · prima di installare</span>
+          <p class="warn-shown" data-i18n="w3Shown">Compare: «App non sicura» e «Scansiona app»</p>
+          <p class="warn-tap" data-i18n="w3Tap">Tocca «Installa comunque»</p>
+          <svg class="dialog" viewBox="0 0 310 120" width="310" height="120" aria-hidden="true"><rect class="d-frame" x="0.75" y="0.75" width="308.5" height="118.5" rx="16"/><path class="d-ico" d="M30 18l14 5v10c0 8-6 13-14 15-8-2-14-7-14-15V23z" transform="translate(4 4)"/><rect class="d-l1" x="58" y="22" width="150" height="8" rx="4"/><rect class="d-l2" x="58" y="38" width="220" height="6" rx="3"/><rect class="d-btn" x="20" y="58" width="270" height="22" rx="11"/><rect class="d-ring" x="100" y="86" width="110" height="26" rx="13"/><rect class="d-acc" x="116" y="95" width="78" height="8" rx="4"/><circle class="d-halo" cx="190" cy="108" r="12"/><circle class="d-acc" cx="190" cy="108" r="5"/></svg>
+          <p class="warn-why" data-i18n="w3Why">Play Protect non conosce ancora Insieme, perché è nuova. Il file è firmato: è proprio quello che pubblichiamo noi.</p>
+        </li>
+      </ol>
+      <div class="bridge not-desktop">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        <p data-i18n="bridge">Dopo l'installazione torna su questa pagina e tocca «Apri l'invito».</p>
+      </div>
     </li>
     <li class="card step">
-      <div class="step-head"><span class="step-n" aria-hidden="true">2</span><h2 data-i18n="s2Title">Apri l'invito</h2></div>
+      <div class="step-head"><span class="step-n" aria-hidden="true">3</span><h2 data-i18n="s3Title">Apri l'invito</h2></div>
       <div class="only-token stack">
-        <p class="not-desktop" data-i18n="s2Body">Con l'app installata, tocca qui: l'invito si apre in Insieme.</p>
-        <a class="btn btn--tonal not-desktop" id="open" href="insieme://invite/"><span data-i18n="s2Button">Apri l'invito in Insieme</span></a>
-        <p class="fallback" data-i18n="s2Fallback">Non si apre? In Insieme tocca «Ho un invito» e incolla questo codice:</p>
+        <p class="not-desktop" data-i18n="s3Body">Con Insieme installato, tocca qui: l'invito si apre nell'app. Poi entri con la tua email, senza password.</p>
+        <a class="btn btn--tonal not-desktop" id="open" href="insieme://invite/"><span data-i18n="s3Button">Apri l'invito in Insieme</span></a>
+        <p class="fallback" data-i18n="s3Fallback">Non si apre? In Insieme tocca «Ho un invito» e scrivi o incolla questo codice:</p>
         <code class="code" id="code" aria-label="Codice di invito" data-i18n-label="codeLabel"></code>
         <button class="btn btn--outline" id="copy" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 5.5v-.5a2 2 0 0 0-2-2h-8.5a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h.5"/></svg>
+          <svg class="i-copy" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 5.5v-.5a2 2 0 0 0-2-2h-8.5a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h.5"/></svg>
+          <svg class="i-done" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l5 5L19 7"/></svg>
           <span id="copy-label" data-i18n="copy">Copia il codice</span>
         </button>
         <span class="hidden" id="copied" data-i18n="copied">Codice copiato</span>
+        <p class="copied-hint hidden" id="copied-hint" role="status" data-i18n="copiedLabel">Ora incollalo in Insieme, dove tocchi «Ho un invito».</p>
+        <div class="notice notice--inset hidden" id="copy-fail" role="status">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></svg>
+          <div><strong data-i18n="copyFailTitle">Non riesco a copiarlo da solo</strong><span data-i18n="copyFailBody">Tieni premuto sul codice e scegli «Copia».</span></div>
+        </div>
       </div>
-      <p class="only-notoken" data-i18n="s2NoToken">Tocca il link d'invito nel messaggio che hai ricevuto: si apre in Insieme. Oppure in Insieme tocca «Ho un invito» e incolla il codice del messaggio.</p>
-    </li>
-    <li class="card step">
-      <div class="step-head"><span class="step-n" aria-hidden="true">3</span><h2 data-i18n="s3Title">Entra con la tua email</h2></div>
-      <p data-i18n="s3Body">Ti mandiamo un codice di 6 cifre, niente password. Dopo l'accesso entri nella famiglia che ti ha invitato.</p>
+      <div class="only-notoken stack">
+        <div class="notice notice--inset">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></svg>
+          <div><strong data-i18n="noTokenTitle">Questo link non ha un codice valido</strong><span data-i18n="noTokenBody">Il codice manca, è incompleto o l'invito è scaduto (valgono 7 giorni). Chiedi a chi ti ha invitato di mandartene uno nuovo.</span></div>
+        </div>
+        <p data-i18n="s3NoToken">Con Insieme installato, tocca il link d'invito nel messaggio che hai ricevuto: si apre nell'app.</p>
+      </div>
     </li>
   </ol>
 
@@ -126,7 +165,7 @@
 </div>
 
 <footer class="foot">
-  <p data-i18n="trust">Insieme è la memoria condivisa della casa. Questa pagina non usa cookie né statistiche.</p>
+  <p data-i18n="trust">Il codice resta nel tuo browser: la pagina non lo manda a nessuno e non usa cookie né statistiche.</p>
   <a id="privacy" href="https://insieme.app/privacy/" data-href-en="https://insieme.app/en/privacy/" data-i18n="privacy">Privacy</a>
 </footer>
 </body>
