@@ -1,0 +1,6 @@
+# Insieme for Android: SHA-256 fingerprint of the certificate the app is signed with.
+# Check the APK you downloaded before you install it: `apksigner verify --print-certs insieme.apk`
+# (Android SDK build-tools) must print this same value on the line "certificate SHA-256 digest".
+# The Android build (.github/workflows/android-build.yml) fails, and uploads nothing, if its APK is signed
+# with anything else. Changing this value is a key change: do it only on purpose (docs/SETUP.md 7.8).
+SHA-256: A0:2F:26:3F:1F:72:75:3D:3E:2D:77:65:20:0A:50:FB:ED:08:FD:BF:21:68:87:13:BA:12:19:7D:24:1E:B4:B1
